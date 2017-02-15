@@ -136,8 +136,7 @@ class Container:
                 self("useradd --create-home -u {uid} -g {gid} -p {user.shadow_password} "
                      "--shell=/bin/bash {user.name}".format(
                      user=user, gid=gid, uid=uid))
-                self(
-                    "groupadd -g {gid} {user.name}".format(user=user, gid=gid))
+                self("groupadd -g {gid} {user.name}".format(user=user, gid=gid))
                 if user.admin:
                     self("usermod -a -G sudo {user.name}".format(user=user))
             except sp.CalledProcessError:
