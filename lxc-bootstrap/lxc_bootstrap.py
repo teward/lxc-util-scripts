@@ -21,7 +21,6 @@
 #
 # Designed for Ubuntu / Debian systems.
 
-# import os
 import sys
 import argparse
 import crypt
