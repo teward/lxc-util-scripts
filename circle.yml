@@ -1,0 +1,10 @@
+machine:
+  python:
+    version: 2.7.10
+dependencies:
+  post:
+    - pip install -r requirements.txt --upgrade
+test:
+  override:
+    - flake8 ./lxc-bootstrap/
+    - flake8 ./lxc-nuke/
