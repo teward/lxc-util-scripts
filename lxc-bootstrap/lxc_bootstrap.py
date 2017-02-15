@@ -135,7 +135,7 @@ class Container:
             try:
                 self("useradd --create-home -u {uid} -g {gid} -p {user.shadow_password} "
                      "--shell=/bin/bash {user.name}".format(
-                    user=user, gid=gid, uid=uid))
+                     user=user, gid=gid, uid=uid))
                 self(
                     "groupadd -g {gid} {user.name}".format(user=user, gid=gid))
                 if user.admin:
@@ -148,7 +148,8 @@ class Container:
     def bootstrap_packages(self, to_add, to_exclude, autoremove=False):
         self("apt-get install -y {}".format(" ".join(to_add)), "Something went wrong installing "
                                                                "additional packages.")
-        self("apt-get remove -y --purge {}".format(" ".join(to_exclude)), "Something went wrong removing specified packages.")
+        self("apt-get remove -y --purge {}".format(" ".join(to_exclude)), "Something went wrong "
+                                                                          "removing specified packages.")
         if autoremove:
             self("apt-get autoremove -y --purge", "Something went wrong cleaning up after removal with 'autoremove'.")
 
